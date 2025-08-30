@@ -1,18 +1,228 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="it">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>my-first-website</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Queen</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      background: #23232b; /* più chiaro */
+      color: #f3f4f6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      letter-spacing: 0.01em;
+    }
+    header, footer {
+      background: #31313c; /* ancora più chiaro */
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem 1.2rem 1rem;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.3rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    header p {
+      color: #b3b3b3;
+      font-size: 1.1rem;
+      margin-top: 0.7rem;
+      margin-bottom: 0;
+    }
+    nav {
+      background: #23232b;
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 0.8rem 0.5rem;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    }
+    nav button {
+      background: #31313c;
+      border: none;
+      border-radius: 1.5rem;
+      padding: 0.55rem 1.3rem;
+      color: #f3f4f6;
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+      box-shadow: 0 1px 4px 0 rgba(0,0,0,0.10);
+      outline: none;
+    }
+    nav button:hover, nav button:focus {
+      background: #444452;
+      color: #fff;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18);
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .card {
+      max-width: 700px;
+      background: #31313c; /* come header/footer */
+      padding: 2.2rem 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.22);
+      text-align: center;
+      animation: fadeIn 1s ease;
+      word-wrap: break-word;
+      white-space: normal;
+      color: #f3f4f6;
+      margin: 0 0.5rem;
+    }
+    .card h2 {
+      color: #fff;
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .card p {
+      text-align: center;
+      line-height: 1.6;
+      color: #d4d4d8;
+      font-size: 1.08rem;
+      margin-bottom: 1.1em;
+    }
+    .coming-soon {
+      color: #a1a1aa;
+      font-style: italic;
+    }
+    .typing {
+      white-space: normal;
+      display: inline-block;
+    }
+    footer {
+      text-align: center;
+      padding: 1.1rem;
+      font-size: 1rem;
+      background: #e5e5e5;
+      color: #23232b;
+      border-top: 1px solid #b3b3b3;
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 600px) {
+      header {
+        padding: 1.2rem 0.5rem 0.7rem 0.5rem;
+      }
+      header h1 {
+        font-size: 1.25rem;
+      }
+      nav {
+        gap: 0.4rem;
+        padding: 0.5rem 0.2rem;
+      }
+      nav button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.98rem;
+      }
+      main {
+        padding: 0.5rem;
+      }
+      .card {
+        padding: 1rem 0.5rem;
+        max-width: 98vw;
+        font-size: 1rem;
+      }
+      .card h2 {
+        font-size: 1.08rem;
+      }
+      .card p {
+        font-size: 0.98rem;
+      }
+      footer {
+        padding: 0.7rem;
+        font-size: 0.88rem;
+      }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <h1>👑 Settimana Santa dei 30 👑</h1>
+    <p>Un piccolo omaggio per accompagnare la Regina verso il Suo compleanno</p>
+  </header>
 
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" id="octocat" alt="octocat-gif" />
+  <nav>
+    <button onclick="showDay('lunedi')">Lunedì</button>
+    <button onclick="showDay('martedi')">Martedì</button>
+    <button onclick="showDay('mercoledi')">Mercoledì</button>
+    <button onclick="showDay('giovedi')">Giovedì</button>
+    <button onclick="showDay('venerdi')">Venerdì</button>
+  </nav>
 
-<!-- Change this code here by copy and pasting your template on line 15 -->
-<p>Welcome to your first GitHub Pages website!</p>
+  <main>
+    <div class="card" id="card">
+      <h2>Calendario dell'avvento</h2>
+      <p>
+        Ogni giorno della settimana si sbloccherà un nuovo messaggio speciale.<br>
+        Torna qui ogni giorno per leggere la nuova dedica e vivere insieme l' attesa del Grande Giorno!
+      </p>
+      <h4>✨ Clicca su un giorno per scoprire il messaggio ✨</h4>
+    </div>
+  </main>
 
+  <footer>
+    Con devozione,<br>zimbello 🖤
+  </footer>
+
+  <script>
+  const lunMsg = "✨ Oggi ha inizio la settimana che ci condurrà al Tuo trentesimo compleanno. Da oggi, ogni giorno, riceverai un piccolo messaggio di devozione, fino al Grande Giorno. Che abbia inizio la Settimana Santa! 👑";
+  const marMsg = "💌 Secondo giorno di celebrazione. Ogni pensiero del regno è rivolto solo a Te e alla Tua imminente ascesa. I cuori di tutti si riempiono di devozione, pronti a seguire la Tua guida e ad onorare la Tua presenza tra noi. 🌟";
+  const merMsg = "⏳ Terzo giorno della Settimana Santa. L'attesa cresce, i sudditi fremono: il Grande Giorno si avvicina. Il regno si prepara a celebrare la Sua Unica Divinità. 🕰️";
+  const gioMsg = "🥂 Oggi è la Vigilia: il regno trattiene il respiro, pronto ad omaggiare con gli occhi e i calici rivolti verso l'alto l'ascesa della Regina. 👸";
+  const venMsg = "🎉 Il momento è giunto: oggi compi 30 anni, e tutti i sudditi si inchinano a Te. Questa sera il regno festeggerà in tuo onore come mai prima d'ora. 🥳";
+
+  const schedule = {
+    lunedi:    { date: new Date(2025, 9, 1), title: "Lunedì - Proclama Inaugurale", text: lunMsg },
+    martedi:   { date: new Date(2025, 9, 2), title: "Martedì - Devozione", text: marMsg },
+    mercoledi: { date: new Date(2025, 9, 3), title: "Mercoledì - Attesa Crescente", text: merMsg },
+    giovedi:   { date: new Date(2025, 9, 4), title: "Giovedì - Vigilia", text: gioMsg },
+    venerdi:   { date: new Date(2025, 9, 5), title: "Venerdì - Editto Finale", text: venMsg }
+  };
+
+  const now = new Date();
+
+  function showDay(day) {
+    const card = document.getElementById("card");
+    card.innerHTML = "";
+
+    const h2 = document.createElement("h2");
+    const p = document.createElement("p");
+
+    h2.textContent = schedule[day].title;
+
+    if (now >= schedule[day].date) {
+      const span = document.createElement("span");
+      span.textContent = schedule[day].text;
+      span.classList.add("typing");
+      p.appendChild(span);
+    } else {
+      p.textContent = "✨ I sudditi sono a lavoro per Te... ✨";
+      p.classList.add("coming-soon");
+    }
+
+    card.appendChild(h2);
+    card.appendChild(p);
+  }
+  </script>
 </body>
 </html>
