@@ -170,6 +170,25 @@
   </style>
 </head>
 <body>
+  <div id="pin-modal" style="
+    position:fixed;top:0;left:0;width:100vw;height:100vh;
+    background:rgba(30,30,40,0.96);z-index:9999;display:flex;align-items:center;justify-content:center;
+    flex-direction:column;backdrop-filter:blur(2px);">
+    <div style="background:#23232b;padding:2.5rem 2rem 2rem 2rem;border-radius:1.2rem;box-shadow:0 4px 24px #0008;text-align:center;">
+      <h2 style="color:#ffd700;margin-bottom:1.2em;">🔒 Accesso riservato</h2>
+      <p style="color:#fff;margin-bottom:1.2em;">Inserisci il PIN per accedere:</p>
+      <input id="pin-input" type="password" maxlength="8" style="padding:0.6em 1em;font-size:1.1em;border-radius:0.7em;border:none;outline:none;margin-bottom:1em;">
+      <br>
+      <button id="pin-btn" style="padding:0.5em 1.5em;border-radius:1em;background:#ffd700;color:#23232b;font-weight:600;font-size:1.1em;border:none;cursor:pointer;">Accedi</button>
+      <p id="pin-error" style="color:#ff6b6b;margin-top:1em;display:none;">PIN errato. Riprova.</p>
+    </div>
+  </div>
+  <div id="blur-overlay" style="
+    position:fixed;top:0;left:0;width:100vw;height:100vh;
+    background:rgba(0,0,0,0.08);backdrop-filter:blur(6px);
+    z-index:999;pointer-events:none;display:none;">
+  </div>
+
   <header>
     <h1>👑 Settimana Santa dei 30 👑</h1>
     <p>Un piccolo omaggio per accompagnare la Regina verso il Suo compleanno</p>
@@ -191,6 +210,13 @@
 
   <footer>
     Con devozione,<br>zimbello 🖤
+    <br>
+    <a id="contatta-zimbello"
+       href="https://wa.me/393665011071?text=Ciao%20zimbello%2C%20ho%20letto%20il%20calendario%20della%20Regina!"
+       target="_blank"
+       style="display:inline-block;margin-top:0.7em;color:#25d366;font-weight:600;text-decoration:none;font-size:1.08em;">
+      📱 Contatta zimbello su WhatsApp
+    </a>
   </footer>
 
   <script>
@@ -270,6 +296,51 @@
     card.appendChild(p);
     card.appendChild(backLink);
   }
+
+  // --- PIN MODALE ---
+  const CORRECT_PIN = "050925"; // Cambia qui il PIN
+  const pinModal = document.getElementById('pin-modal');
+  const blurOverlay = document.getElementById('blur-overlay');
+  const pinInput = document.getElementById('pin-input');
+  const pinBtn = document.getElementById('pin-btn');
+  const pinError = document.getElementById('pin-error');
+
+  // Nascondi il link WhatsApp finché il PIN non è corretto
+  const contattaZimbello = document.getElementById('contatta-zimbello');
+
+  function unlockSite() {
+    pinModal.style.display = "none";
+    blurOverlay.style.display = "none";
+    document.body.style.overflow = "";
+    if (contattaZimbello) contattaZimbello.style.display = "inline-block";
+  }
+
+  function lockSite() {
+    pinModal.style.display = "flex";
+    blurOverlay.style.display = "block";
+    document.body.style.overflow = "hidden";
+    pinInput.value = "";
+    pinError.style.display = "none";
+    pinInput.focus();
+    if (contattaZimbello) contattaZimbello.style.display = "none";
+  }
+
+  pinBtn.onclick = function() {
+    if (pinInput.value === CORRECT_PIN) {
+      unlockSite();
+    } else {
+      pinError.style.display = "block";
+      pinInput.value = "";
+      pinInput.focus();
+    }
+  };
+
+  pinInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") pinBtn.click();
+  });
+
+  // Blocca il sito all'avvio
+  window.addEventListener("DOMContentLoaded", lockSite);
 
   // Mostra la home all'avvio
   window.onload = showHome;
