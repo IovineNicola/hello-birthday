@@ -6,43 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello birthday</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Poppins', Arial, sans-serif;
-      background: linear-gradient(135deg, #14141a 0%, #23232b 60%, #353542 100%);
+      background: linear-gradient(135deg, #0d0d12 0%, #1a1a22 60%, #2a2a38 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      overflow-x: hidden;
     }
 
     .invito-card {
-      background: #23232bcc;
-      border-radius: 2em;
-      box-shadow: 0 8px 32px #0008;
-      padding: 2.5em 2em 2em 2em;
-      max-width: 370px;
+      background: #1e1e28dd;
+      border-radius: 3em;
+      box-shadow: 0 10px 40px #0008;
+      padding: 3em 2.5em 2.5em 2.5em;
+      max-width: 400px;
       text-align: center;
       margin: 2em 1em;
       position: relative;
       overflow: hidden;
       transition: max-height 0.7s cubic-bezier(.77, 0, .18, 1), box-shadow 0.3s;
-      max-height: 120px;
+      max-height: 130px;
       cursor: pointer;
     }
 
     .invito-card.closed {
-      max-height: 120px;
-      box-shadow: 0 2px 8px #0006;
-      cursor: pointer;
+      max-height: 130px;
+      box-shadow: 0 2px 10px #0006;
     }
 
     .invito-card.open {
-      max-height: 900px;
-      box-shadow: 0 8px 32px #0008;
+      max-height: 950px;
+      box-shadow: 0 10px 40px #000c;
       cursor: default;
     }
 
@@ -61,9 +63,9 @@
     }
 
     .cover-title {
-      font-size: 2em;
+      font-size: 2.3em;
       color: #ffd700;
-      text-shadow: 0 2px 8px #000a;
+      text-shadow: 0 2px 12px #000a, 0 0 10px #ffd70077;
       margin-bottom: 0.3em;
       font-weight: 700;
       letter-spacing: 1px;
@@ -71,32 +73,32 @@
     }
 
     .open-btn {
-      background: #ffd700;
-      color: #23232b;
+      background: linear-gradient(45deg, #ffd700, #ffb84d);
+      color: #1e1e28;
       border: none;
-      border-radius: 1.2em;
-      padding: 0.7em 2em;
-      font-size: 1.1em;
-      font-weight: 600;
+      border-radius: 1.5em;
+      padding: 0.8em 2.5em;
+      font-size: 1.15em;
+      font-weight: 700;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      margin-top: 0.5em;
-      box-shadow: 0 2px 8px #0004;
+      transition: all 0.3s ease;
+      margin-top: 0.7em;
+      box-shadow: 0 4px 12px #0005;
       outline: none;
     }
 
     .open-btn:hover {
-      background: #ffb84d;
-      color: #18181f;
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px #0008;
     }
 
     .content {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(50px);
       transition: opacity 0.6s 0.2s, transform 0.6s 0.2s;
       pointer-events: none;
       height: 0;
-      overflow: hidden;
+      overflow: visible;
       margin-top: 1.5em;
     }
 
@@ -107,87 +109,100 @@
       height: auto;
     }
 
-    .calendar-link {
-      color: #4fc3f7;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-
-    .calendar-link:hover {
-      color: #00bcd4;
-      text-decoration: underline;
-    }
-
-    .maps-link {
-      color: #4fc3f7;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-
-    .maps-link:hover {
-      color: #00bcd4;
-      text-decoration: underline;
-    }
-
-    .rsvp-btn {
-      background: #ffd700;
-      color: #23232b;
-      border: none;
-      border-radius: 1.2em;
-      padding: 0.7em 2em;
-      font-size: 1.1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      margin-top: 0.5em;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 2px 8px #0004;
-    }
-
-    .rsvp-btn:hover {
-      background: #ffb84d;
-      color: #18181f;
-    }
-
     .frase {
-      background: linear-gradient(90deg, #23232b 60%, #353542 100%);
-      border-radius: 1.2em;
-      padding: 1.2em 1em 1em 1em;
+      background: linear-gradient(90deg, #1e1e28 60%, #2a2a38 100%);
+      border-radius: 1.5em;
+      padding: 1.5em 1.2em;
       margin-top: 2em;
       margin-bottom: 1.5em;
       color: #ffd700;
-      font-size: 1.13em;
+      font-size: 1.2em;
       font-weight: 500;
       line-height: 1.6;
-      box-shadow: 0 2px 12px #0003;
+      box-shadow: 0 2px 16px #0005;
       letter-spacing: 0.01em;
-      text-shadow: 0 2px 8px #0006;
-      border: 1.5px solid #ffd70033;
+      text-shadow: 0 2px 12px #0008;
+      border: 2px solid #ffd70055;
       display: inline-block;
+      animation: glow 2s infinite alternate;
     }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 8px #ffd70066;
+      }
+
+      50% {
+        box-shadow: 0 0 20px #ffd700aa;
+      }
+
+      100% {
+        box-shadow: 0 0 8px #ffd70066;
+      }
+    }
+
+    .calendar-link,
+    .maps-link {
+      color: #4fc3f7;
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .calendar-link:hover,
+    .maps-link:hover {
+      color: #00bcd4;
+    }
+
+    .rsvp-btn {
+      background: linear-gradient(45deg, #ffd700, #ffb84d);
+      color: #1e1e28;
+      border: none;
+      border-radius: 1.5em;
+      padding: 0.8em 2.5em;
+      font-size: 1.15em;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.7em;
+      display: inline-block;
+      box-shadow: 0 4px 12px #0005;
+      text-decoration: none;
+    }
+
+    .rsvp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px #0008;
+      text-decoration: none;
+    }
+
+    .dresscode-badge {
+      display: inline-block;
+      padding: 0.5em 1em;
+      margin-top: 1.2em;
+      border-radius: 1em;
+      background: #2a2a38dd;
+      color: #fffbe9;
+      font-size: 1em;
+      font-weight: 600;
+      text-align: center;
+      border: 2px solid #ffd70055;
+      box-shadow: 0 2px 8px #0005;
+    }
+
+    .dresscode-badge .gold {
+      color: #ffd700;
+      font-weight: 700;
+    }
+
 
     .footer {
-      margin-top: 2em;
+      margin-top: 2.5em;
       color: #ffd700;
-      font-size: 1em;
+      font-size: 1.05em;
       text-align: center;
-      opacity: 0.7;
-      text-shadow: 0 1px 4px #0007;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      opacity: 0.8;
+      text-shadow: 0 1px 6px #0008;
     }
   </style>
 </head>
@@ -200,18 +215,18 @@
         <span aria-hidden="true">🎉</span> Scopri i dettagli <span aria-hidden="true">🎉</span>
       </button>
     </div>
-    <div class="content" style="margin-top: 0px;">
+    <div class="content">
       <p class="frase">
         <span style="font-size:1.3em; margin-right:0.2em;">🥳</span>
         <span style="font-weight:600;">Sono arrivati i 30!</span>
         <span style="font-size:1.3em; margin-left:0.2em;">🥳</span>
         <br>
         <span style="font-size:1.1em; color:#fffbe9; display:inline-block; margin:0.5em 0;">
-          🥂 Persone care, risate assicurate, piatti pieni e calici in alto 🥂
+          🥂 Persone care, risate assicurate, piatti pieni e tanti brindisi 🥂
         </span>
         <br>
         <span style="font-size:1.15em; color:#ffd700; font-weight:600; display:inline-block; margin-top:0.5em;">
-          ✨ Ci sarai? ✨
+          🍾 Ci sarai? 🍾
         </span>
       </p>
       <div class="details">
@@ -230,35 +245,84 @@
             <span style="margin-left:0.2em;">Moles, Parete</span>
           </a>
         </div>
+        <div>
+          <span style="font-size:1.2em;">🅿️</span>
+          <a class="maps-link" href="https://maps.app.goo.gl/wxELExFKiPsR398J9" target="_blank"
+            style="display:inline-flex;align-items:center;gap:0.3em;">
+            <span style="margin-left:0.2em;">Parcheggio interno privato</span>
+          </a>
+        </div>
         <hr>
+      </div>
+      <div class="dresscode-badge">
+        👗 Dress code 👔<br>
+        porta il tuo stile e aggiungi un tocco <span class="gold">✨oro✨</span>
       </div>
       <a class="rsvp-btn" id="waBtn" href="#" target="_blank">
         Conferma su WhatsApp
       </a>
     </div>
   </div>
+
   <div class="footer">
     Con affetto,<br>
     Nicola
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <script>
     const card = document.getElementById('invitoCard');
     const openBtn = document.getElementById('openBtn');
-    const cover = document.getElementById('cover');
     const waBtn = document.getElementById('waBtn');
-    const coverTitle = document.getElementById('coverTitle');
 
     openBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       card.classList.remove('closed');
       card.classList.add('open');
       openBtn.style.display = "none";
+
+      function partyBurst() {
+        const colors = ['#ffd700', '#ff4d4d', '#4dff4d', '#4d4dff', '#ff4dff', '#00ffff', '#ff69b4', '#7fff00'];
+
+        confetti({
+          particleCount: 40 + Math.floor(Math.random() * 30),
+          startVelocity: 40 + Math.random() * 40,
+          spread: 70 + Math.random() * 20,
+          ticks: 80 + Math.random() * 20,
+          gravity: 0.6,
+          origin: { x: Math.random(), y: 1 },
+          colors: colors
+        });
+        confetti({
+          particleCount: 30 + Math.floor(Math.random() * 30),
+          startVelocity: 30 + Math.random() * 30,
+          angle: 60 + Math.random() * 20,
+          spread: 60,
+          origin: { x: 0, y: 0.8 },
+          gravity: 0.7,
+          colors: colors
+        });
+        confetti({
+          particleCount: 30 + Math.floor(Math.random() * 30),
+          startVelocity: 30 + Math.random() * 30,
+          angle: 120 - Math.random() * 20,
+          spread: 60,
+          origin: { x: 1, y: 0.8 },
+          gravity: 0.7,
+          colors: colors
+        });
+      }
+
+      let bursts = 6;
+      for (let i = 0; i < bursts; i++) {
+        setTimeout(partyBurst, i * 400);
+      }
     });
 
     const eventTitle = "Nicola 30 anni";
     const eventLocation = "Moles, Via Scipione l'Africano, Parete";
-    const eventStart = "20251009T203000Z";
-    const eventEnd = "20251010T003000Z";
+    const eventStart = "20251009T183000Z";
+    const eventEnd = "20251009T223000Z";
 
     const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE`
       + `&text=${encodeURIComponent(eventTitle)}`
@@ -270,15 +334,10 @@
       if (calendarLink) {
         calendarLink.href = calendarUrl;
       }
-    });
-
-    const waNumber = "393665011071";
-    const waMessage = "Ciao Nicola, ci sarò al tuo compleanno!";
-    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
-
-    document.addEventListener("DOMContentLoaded", function () {
       if (waBtn) {
-        waBtn.href = waUrl;
+        const waNumber = "393665011071";
+        const waMessage = "Ciao Nicola, ci sarò al tuo compleanno!";
+        waBtn.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
       }
     });
   </script>
