@@ -1,10 +1,287 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Birthday</title>
+  <title>Hello birthday</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #14141a 0%, #23232b 60%, #353542 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .invito-card {
+      background: #23232bcc;
+      border-radius: 2em;
+      box-shadow: 0 8px 32px #0008;
+      padding: 2.5em 2em 2em 2em;
+      max-width: 370px;
+      text-align: center;
+      margin: 2em 1em;
+      position: relative;
+      overflow: hidden;
+      transition: max-height 0.7s cubic-bezier(.77, 0, .18, 1), box-shadow 0.3s;
+      max-height: 120px;
+      cursor: pointer;
+    }
+
+    .invito-card.closed {
+      max-height: 120px;
+      box-shadow: 0 2px 8px #0006;
+      cursor: pointer;
+    }
+
+    .invito-card.open {
+      max-height: 900px;
+      box-shadow: 0 8px 32px #0008;
+      cursor: default;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      opacity: 1;
+      transition:
+        opacity 0.4s,
+        transform 0.7s cubic-bezier(.77, 0, .18, 1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover-title {
+      font-size: 2em;
+      color: #ffd700;
+      text-shadow: 0 2px 8px #000a;
+      margin-bottom: 0.3em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: font-size 0.3s;
+    }
+
+    .open-btn {
+      background: #ffd700;
+      color: #23232b;
+      border: none;
+      border-radius: 1.2em;
+      padding: 0.7em 2em;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      margin-top: 0.5em;
+      box-shadow: 0 2px 8px #0004;
+      outline: none;
+    }
+
+    .open-btn:hover {
+      background: #ffb84d;
+      color: #18181f;
+    }
+
+    .content {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s 0.2s, transform 0.6s 0.2s;
+      pointer-events: none;
+      height: 0;
+      overflow: hidden;
+      margin-top: 1.5em;
+    }
+
+    .invito-card.open .content {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      height: auto;
+    }
+
+    .calendar-link {
+      color: #4fc3f7;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .calendar-link:hover {
+      color: #00bcd4;
+      text-decoration: underline;
+    }
+
+    .maps-link {
+      color: #4fc3f7;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .maps-link:hover {
+      color: #00bcd4;
+      text-decoration: underline;
+    }
+
+    .rsvp-btn {
+      background: #ffd700;
+      color: #23232b;
+      border: none;
+      border-radius: 1.2em;
+      padding: 0.7em 2em;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      margin-top: 0.5em;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 2px 8px #0004;
+    }
+
+    .rsvp-btn:hover {
+      background: #ffb84d;
+      color: #18181f;
+    }
+
+    .frase {
+      background: linear-gradient(90deg, #23232b 60%, #353542 100%);
+      border-radius: 1.2em;
+      padding: 1.2em 1em 1em 1em;
+      margin-top: 2em;
+      margin-bottom: 1.5em;
+      color: #ffd700;
+      font-size: 1.13em;
+      font-weight: 500;
+      line-height: 1.6;
+      box-shadow: 0 2px 12px #0003;
+      letter-spacing: 0.01em;
+      text-shadow: 0 2px 8px #0006;
+      border: 1.5px solid #ffd70033;
+      display: inline-block;
+    }
+
+    .footer {
+      margin-top: 2em;
+      color: #ffd700;
+      font-size: 1em;
+      text-align: center;
+      opacity: 0.7;
+      text-shadow: 0 1px 4px #0007;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="invito-card closed" id="invitoCard">
+    <div class="cover" id="cover">
+      <div class="cover-title" id="coverTitle">Nicola's 30th birthday</div>
+      <button class="open-btn" id="openBtn" aria-label="Apri invito">
+        <span aria-hidden="true">🎉</span> Scopri i dettagli <span aria-hidden="true">🎉</span>
+      </button>
+    </div>
+    <div class="content" style="margin-top: 0px;">
+      <p class="frase">
+        <span style="font-size:1.3em; margin-right:0.2em;">🥳</span>
+        <span style="font-weight:600;">Sono arrivati i 30!</span>
+        <span style="font-size:1.3em; margin-left:0.2em;">🥳</span>
+        <br>
+        <span style="font-size:1.1em; color:#fffbe9; display:inline-block; margin:0.5em 0;">
+          🥂 Persone care, risate assicurate, piatti pieni e calici in alto 🥂
+        </span>
+        <br>
+        <span style="font-size:1.15em; color:#ffd700; font-weight:600; display:inline-block; margin-top:0.5em;">
+          ✨ Ci sarai? ✨
+        </span>
+      </p>
+      <div class="details">
+        <hr>
+        <div>
+          <span style="font-size:1.2em;">🗓️</span>
+          <a class="calendar-link" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:0.3em;">
+            <span style="margin-left:0.2em;">9 ottobre 2025, 20:30</span>
+          </a>
+        </div>
+        <div>
+          <span style="font-size:1.2em;">📌</span>
+          <a class="maps-link"
+            href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x133b05aac6f41a8d:0x626c8beba653e9a0?sa=X&ved=1t:8290&ictx=111"
+            target="_blank" style="display:inline-flex;align-items:center;gap:0.3em;">
+            <span style="margin-left:0.2em;">Moles, Parete</span>
+          </a>
+        </div>
+        <hr>
+      </div>
+      <a class="rsvp-btn" id="waBtn" href="#" target="_blank">
+        Conferma su WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="footer">
+    Con affetto,<br>
+    Nicola
+  </div>
+  <script>
+    const card = document.getElementById('invitoCard');
+    const openBtn = document.getElementById('openBtn');
+    const cover = document.getElementById('cover');
+    const waBtn = document.getElementById('waBtn');
+    const coverTitle = document.getElementById('coverTitle');
+
+    openBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      card.classList.remove('closed');
+      card.classList.add('open');
+      openBtn.style.display = "none";
+    });
+
+    const eventTitle = "Nicola 30 anni";
+    const eventLocation = "Moles, Via Scipione l'Africano, Parete";
+    const eventStart = "20251009T203000Z";
+    const eventEnd = "20251010T003000Z";
+
+    const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE`
+      + `&text=${encodeURIComponent(eventTitle)}`
+      + `&dates=${eventStart}/${eventEnd}`
+      + `&location=${encodeURIComponent(eventLocation)}`;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const calendarLink = document.querySelector('.calendar-link');
+      if (calendarLink) {
+        calendarLink.href = calendarUrl;
+      }
+    });
+
+    const waNumber = "393665011071";
+    const waMessage = "Ciao Nicola, ci sarò al tuo compleanno!";
+    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      if (waBtn) {
+        waBtn.href = waUrl;
+      }
+    });
+  </script>
 </body>
+
 </html>
