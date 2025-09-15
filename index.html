@@ -13,7 +13,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Poppins', Arial, sans-serif;
-      background: linear-gradient(135deg, #0d0d12 0%, #1a1a22 60%, #2a2a38 100%);
+      background: linear-gradient(135deg, #0a0a10 0%, #14141f 60%, #222230 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -23,11 +23,11 @@
     }
 
     .invito-card {
-      background: #1e1e28dd;
+      background: linear-gradient(145deg, #1f1f2edd, #2a2a3ddd);
       border-radius: 3em;
       box-shadow: 0 10px 40px #0008;
       padding: 3em 2.5em 2.5em 2.5em;
-      max-width: 400px;
+      max-width: 380px;
       text-align: center;
       margin: 2em 1em;
       position: relative;
@@ -39,12 +39,12 @@
 
     .invito-card.closed {
       max-height: 130px;
-      box-shadow: 0 2px 10px #0006;
+      box-shadow: 0 2px 10px #0006, 0 0 0 1px #ffd70022 inset;
     }
 
     .invito-card.open {
-      max-height: 950px;
-      box-shadow: 0 10px 40px #000c;
+      max-height: 1000px;
+      box-shadow: 0 10px 40px #000c, 0 0 0 1px #ffd70044 inset;
       cursor: default;
     }
 
@@ -63,12 +63,12 @@
     }
 
     .cover-title {
-      font-size: 2.3em;
+      font-size: 1.9em;
       color: #ffd700;
-      text-shadow: 0 2px 12px #000a, 0 0 10px #ffd70077;
+      text-shadow: 0 2px 10px #000a, 0 0 8px #ffd70077;
       margin-bottom: 0.3em;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       transition: font-size 0.3s;
     }
 
@@ -77,29 +77,29 @@
       color: #1e1e28;
       border: none;
       border-radius: 1.5em;
-      padding: 0.8em 2.5em;
-      font-size: 1.15em;
+      padding: 0.7em 2em;
+      font-size: 1em;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
-      margin-top: 0.7em;
-      box-shadow: 0 4px 12px #0005;
+      margin-top: 0.6em;
+      box-shadow: 0 3px 10px #0005;
       outline: none;
     }
 
     .open-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 18px #0008;
+      box-shadow: 0 5px 15px #0008;
     }
 
     .content {
       opacity: 0;
-      transform: translateY(50px);
+      transform: translateY(40px);
       transition: opacity 0.6s 0.2s, transform 0.6s 0.2s;
       pointer-events: none;
       height: 0;
       overflow: visible;
-      margin-top: 1.5em;
+      margin-top: 1em;
     }
 
     .invito-card.open .content {
@@ -110,18 +110,17 @@
     }
 
     .frase {
-      background: linear-gradient(90deg, #1e1e28 60%, #2a2a38 100%);
-      border-radius: 1.5em;
-      padding: 1.5em 1.2em;
-      margin-top: 2em;
-      margin-bottom: 1.5em;
-      color: #ffd700;
-      font-size: 1.2em;
+      background: linear-gradient(90deg, #1f1f2edd 60%, #2a2a3ddd);
+      border-radius: 1.3em;
+      padding: 1.2em 1em;
+      margin: 1.5em 0;
+      color: white;
+      font-size: 1em;
       font-weight: 500;
-      line-height: 1.6;
-      box-shadow: 0 2px 16px #0005;
+      line-height: 1.4;
+      box-shadow: 0 2px 12px #0005;
       letter-spacing: 0.01em;
-      text-shadow: 0 2px 12px #0008;
+      text-shadow: 0 1px 8px #0008;
       border: 2px solid #ffd70055;
       display: inline-block;
       animation: glow 2s infinite alternate;
@@ -129,15 +128,15 @@
 
     @keyframes glow {
       0% {
-        box-shadow: 0 0 8px #ffd70066;
+        box-shadow: 0 0 6px #ffd70066;
       }
 
       50% {
-        box-shadow: 0 0 20px #ffd700aa;
+        box-shadow: 0 0 14px #ffd700aa;
       }
 
       100% {
-        box-shadow: 0 0 8px #ffd70066;
+        box-shadow: 0 0 6px #ffd70066;
       }
     }
 
@@ -147,6 +146,7 @@
       text-decoration: underline;
       font-weight: 600;
       transition: color 0.2s;
+      font-size: 0.95em;
     }
 
     .calendar-link:hover,
@@ -159,35 +159,35 @@
       color: #1e1e28;
       border: none;
       border-radius: 1.5em;
-      padding: 0.8em 2.5em;
-      font-size: 1.15em;
+      padding: 0.7em 2em;
+      font-size: 1em;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
       margin-top: 0.7em;
       display: inline-block;
-      box-shadow: 0 4px 12px #0005;
+      box-shadow: 0 3px 10px #0005;
       text-decoration: none;
     }
 
     .rsvp-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 18px #0008;
+      box-shadow: 0 5px 15px #0008;
       text-decoration: none;
     }
 
     .dresscode-badge {
       display: inline-block;
-      padding: 0.5em 1em;
-      margin-top: 1.2em;
+      padding: 0.35em 0.8em;
+      margin-top: 1em;
       border-radius: 1em;
-      background: #2a2a38dd;
+      background: #2a2a3ddd;
       color: #fffbe9;
-      font-size: 1em;
+      font-size: 0.9em;
       font-weight: 600;
       text-align: center;
       border: 2px solid #ffd70055;
-      box-shadow: 0 2px 8px #0005;
+      box-shadow: 0 2px 6px #0005;
     }
 
     .dresscode-badge .gold {
@@ -195,35 +195,67 @@
       font-weight: 700;
     }
 
-
     .footer {
-      margin-top: 2.5em;
+      margin-top: 2em;
       color: #ffd700;
-      font-size: 1.05em;
+      font-size: 0.95em;
       text-align: center;
-      opacity: 0.8;
-      text-shadow: 0 1px 6px #0008;
+      opacity: 0.85;
+      text-shadow: 0 1px 4px #0008;
+    }
+
+    @media(min-width: 480px) {
+      .cover-title {
+        font-size: 2.1em;
+      }
+
+      .frase {
+        font-size: 1.05em;
+        padding: 1.3em 1.1em;
+      }
+
+      .open-btn,
+      .rsvp-btn {
+        font-size: 1.1em;
+        padding: 0.8em 2.2em;
+      }
+
+      .dresscode-badge {
+        font-size: 1em;
+        padding: 0.45em 0.9em;
+      }
+    }
+
+    @media(min-width: 768px) {
+      .cover-title {
+        font-size: 2.3em;
+      }
+
+      .frase {
+        font-size: 1.15em;
+        padding: 1.5em 1.2em;
+      }
+
+      .open-btn,
+      .rsvp-btn {
+        font-size: 1.15em;
+        padding: 0.8em 2.5em;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="invito-card closed" id="invitoCard">
-    <div class="cover" id="cover">
-      <div class="cover-title" id="coverTitle">Nicola's 30th birthday</div>
+    <div class="cover">
+      <div class="cover-title">Nicola's 30th birthday</div>
       <button class="open-btn" id="openBtn" aria-label="Apri invito">
-        <span aria-hidden="true">🎉</span> Scopri i dettagli <span aria-hidden="true">🎉</span>
+        🎉 Scopri i dettagli 🎉
       </button>
     </div>
     <div class="content">
       <p class="frase">
-        <span style="font-size:1.3em; margin-right:0.2em;">🥳</span>
-        <span style="font-weight:600;">Sono arrivati i 30!</span>
-        <span style="font-size:1.3em; margin-left:0.2em;">🥳</span>
-        <br>
-        <span style="font-size:1.1em; color:#fffbe9; display:inline-block; margin:0.5em 0;">
-          Persone care, tante risate, buon cibo e calici sempre pieni!
-        </span>
+        Persone care, tante risate, buon cibo e calici sempre pieni!
         <br>
         <span style="font-size:1.15em; color:#ffd700; font-weight:600; display:inline-block; margin-top:0.5em;">
           🍾 Ci sarai? 🍾
@@ -232,25 +264,16 @@
       <div class="details">
         <hr>
         <div>
-          <span style="font-size:1.2em;">🗓️</span>
-          <a class="calendar-link" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:0.3em;">
-            <span style="margin-left:0.2em;">9 ottobre 2025, 20:30</span>
-          </a>
+          🗓️ <a class="calendar-link" href="#" target="_blank">9 ottobre 2025, 20:30</a>
         </div>
         <div>
-          <span style="font-size:1.2em;">📌</span>
-          <a class="maps-link"
+          📌 <a class="maps-link"
             href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x133b05aac6f41a8d:0x626c8beba653e9a0?sa=X&ved=1t:8290&ictx=111"
-            target="_blank" style="display:inline-flex;align-items:center;gap:0.3em;">
-            <span style="margin-left:0.2em;">Moles, Parete</span>
-          </a>
+            target="_blank">Moles, Parete</a>
         </div>
         <div>
-          <span style="font-size:1.2em;">🅿️</span>
-          <a class="maps-link" href="https://maps.app.goo.gl/wxELExFKiPsR398J9" target="_blank"
-            style="display:inline-flex;align-items:center;gap:0.3em;">
-            <span style="margin-left:0.2em;">Parcheggio interno privato</span>
-          </a>
+          🅿️ <a class="maps-link" href="https://maps.app.goo.gl/wxELExFKiPsR398J9" target="_blank">Parcheggio interno
+            privato</a>
         </div>
         <hr>
       </div>
