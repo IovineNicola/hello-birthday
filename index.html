@@ -141,7 +141,8 @@
     }
 
     .calendar-link,
-    .maps-link {
+    .maps-link,
+    .forms-link {
       color: #4fc3f7;
       text-decoration: underline;
       font-weight: 600;
@@ -150,7 +151,8 @@
     }
 
     .calendar-link:hover,
-    .maps-link:hover {
+    .maps-link:hover,
+    .forms-link:hover {
       color: #00bcd4;
     }
 
@@ -267,13 +269,16 @@
           🗓️ <a class="calendar-link" href="#" target="_blank">9 ottobre 2025, 20:30</a>
         </div>
         <div>
-          📌 <a class="maps-link"
-            href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x133b05aac6f41a8d:0x626c8beba653e9a0?sa=X&ved=1t:8290&ictx=111"
-            target="_blank">Moles, Parete</a>
+          📌 <a class="maps-link" href="https://maps.app.goo.gl/9Jo8RtUPG2AVi8Zx6" target="_blank">Back Ristora, San
+            Marcellino</a>
         </div>
-        <div>
-          🅿️ <a class="maps-link" href="https://maps.app.goo.gl/wxELExFKiPsR398J9" target="_blank">Parcheggio interno
+        <!-- <div>
+          🅿️ <a class="maps-link" href="https://maps.app.goo.gl/kguWMTEXDTLJ33rXA" target="_blank">Parcheggio interno
             privato</a>
+        </div> -->
+        <div>
+          🍽️ <a class="forms-link" href="https://forms.gle/mAJ5ffyggCdGmqrc7" target="_blank">Allergie o
+            intolleranze?</a>
         </div>
         <hr>
       </div>
@@ -288,7 +293,7 @@
   </div>
 
   <div class="footer">
-    Cheers,<br>
+    Cheers,
     Nicola 🥂
   </div>
 
@@ -336,14 +341,14 @@
         });
       }
 
-      let bursts = 6;
+      let bursts = 3;
       for (let i = 0; i < bursts; i++) {
         setTimeout(partyBurst, i * 400);
       }
     });
 
     const eventTitle = "Nicola 30 anni";
-    const eventLocation = "Moles, Via Scipione l'Africano, Parete";
+    const eventLocation = "Back Ristora, Via Roma, 140, San Marcellino";
     const eventStart = "20251009T183000Z";
     const eventEnd = "20251009T223000Z";
 
